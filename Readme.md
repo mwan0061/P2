@@ -17,6 +17,10 @@ Images of all three camperas are utilised. When using a side camera image, the c
 Each input image is flipped left to right to fabricate a new input.
 
 #### 3. Adding fully connected layers: 
-Too many fully connected layers or neurons at each layer did not seem to have any impact on driving simulation, nor even validation error. The final model only kept three fully connected layer of 256, 128 and 1 neurons.
+Too many fully connected layers or neurons at each layer did not seem to have any impact on driving simulation, nor even validation error. The final model only kept 3 fully connected layer of 256, 128 and 1 neurons.
 
 #### 4. Adding convolutional layers:
+With 3 convolutional layers, training quickly converged after a couple of epoches, while validation error is relatively high. It was then found that the 3rd convolutional layer outputed all black images, thus it was removed since its neurons could not be activated. While the 2nd layer was proved to be helpful when in the image the road and adjacent area are similar in some image channels (such as similar satuation), usually during a section of road not clearly marked with lane lines.
+
+#### 5. Adding correctional data:
+During simulation the car sometimes went off the road due to under steering. Additionl training data of a few hundred images specific for the particular corner were created using the simulator.
