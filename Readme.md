@@ -1,3 +1,7 @@
+# Udacity Self-Driving Car Engineer Nanodegree
+
+## Project 3 - Use Deep Learning to Clone Driving Behavior
+
 ### 1. Model Architecture Design Approach
 
 First of all, it was taken for granted that the model architecture should be a variation of LeNet. That is, the model should consist of convolutional layers that elicit features from input images, and fully connected layers to fit features to expected output. 
