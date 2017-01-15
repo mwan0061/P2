@@ -26,7 +26,7 @@ With 3 convolutional layers, training quickly converged after a couple of epoche
 During simulation the car sometimes went off the road due to under steering. Additionl training data of a few hundred images specific for the particular corner were created using the simulator.
 
 ### 2. Model Architecture
-The model architecture is described by the table below. It is fairly simple, consisting only 2 convolutional and 3 fully connected layers. The convolutional layers are non-striding and only reduced in size by max pooling. This causes the adjacent fully connected layer to have 856320 parameters. 
+The model architecture is described by the table below. It is fairly simple, consisting only 2 convolutional and 3 fully connected layers. The convolutional layers are non-striding and only reduced in size by max pooling. This causes the adjacent fully connected layer to have a relatively large number of parameters. 
 
 | Layer Type | Output Shape | Param # |
 | :--- | :--- | ---: | :--- |
@@ -44,4 +44,4 @@ The model architecture is described by the table below. It is fairly simple, con
 | Dense | (None, 128) | 32896 |
 | Dropout | (None, 128) | 0 |
 | Dense | (None, 1) | 129 |
-| Total params || 890953 |
+Total params: 890953
