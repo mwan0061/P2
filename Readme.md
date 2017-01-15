@@ -8,7 +8,7 @@ First of all, it was taken for granted that the model architecture should be a v
 
 A minialistic model with one convolutional layer (plus pooling and relu) and two fully connected layers was built and tested. It was shown that the model could fit a few sample input images, and output a steering angle in the correct direction. The model was then modified and tuned with a series of trials and errors, until finally could drive the car smoothly in endless laps.
 
-Below is a list of things that have been excercised in order to achieve the final model:
+Below is a list of things that have been excercised in order to achieve the final model. Note that data augmentation and model tuning experiments were carried out in parallel because sometimes it was not clear whether lack of good data or model flaw caused a problem.  
 
 #### 1. Augmenting data by using side camera images: 
 Images of all three camperas are utilised. When using a side camera image, the corresponding steering angle is modified towards the centre. This showed improvement on keeping the car at the centre of the road. 
@@ -45,3 +45,16 @@ The model architecture is described by the table below. It is fairly simple, con
 | Dropout | (None, 128) | 0 |
 | Dense | (None, 1) | 129 |
 Total params: 890953
+
+### 3. Data and Training
+As discussed above, most of the training data came from project designer's sample data set. Images of all 3 camera were utilised, and augmented by flipping each image left to right. As a result, the model is trained against more than 40,000 distinct images. Additional data were gathered using the simulator (controlled by keyboard) for a couple of corners, to rectify under steering at those corners.
+
+In the provided sample data set, the steering angle and speed are both 0, when the car was entering the corner. These inputs were not used for training.
+
+![Provided sample image](./center_2016_12_01_13_31_13_177.jpg)
+
+Additional data were created driving around this corner. The provided data also lacked images taken while the car is in the corner, like the one below:
+
+![Additional training image](./center_2017_01_10_21_11_14_475.jpg)
+
+The model was trained on an AWS EC2 Udacity CarND image. The weights were saved after 10 epoches of training. Each epoch took under 130 seconds to run.
