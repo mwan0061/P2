@@ -24,3 +24,23 @@ With 3 convolutional layers, training quickly converged after a couple of epoche
 
 #### 5. Adding correctional data:
 During simulation the car sometimes went off the road due to under steering. Additionl training data of a few hundred images specific for the particular corner were created using the simulator.
+
+### 2. Model Architecture
+The model architecture is described by the table below:
+
+| Layer Type | Output Shape | Param # |
+| :--- | :--- | ---: | :--- |
+| Lambda | (None, 50, 160, 3) | 0 |
+| Convolution 2D | (None, 48, 158, 16) | 448 |             
+| MaxPooling 2D | (None, 24, 79, 16) | 0 |       
+| Relu | (None, 24, 79, 16) | 0 |      
+| Convolution 2D | (None, 22, 77, 8) | 1160 |         
+| MaxPooling 2D | (None, 11, 38, 8) | 0 |
+| Relu | (None, 11, 38, 8) | 0 |
+| Flatten | (None, 3344) | 0 |
+| Dropout | (None, 3344) | 0 |
+| Dense | (None, 256) | 856320 |
+| Dropout | (None, 256) | 0 |
+| Dense | (None, 128) | 32896 |
+| Dropout | (None, 128) | 0 |
+| Dense | (None, 1) | 129 |
